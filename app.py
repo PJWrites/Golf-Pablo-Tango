@@ -3,7 +3,7 @@ import json
 import requests 
 import streamlit as st 
 
-openai.api_key = "pass"
+openai.api_key = st.secrets["openaiApiKey"]
 
 def BasicGeneration(userPrompt):
     completion = openai.ChatCompletion.create(
