@@ -40,7 +40,7 @@ if clicked:
     explanations for each syllable of the word. You will check your drug name with 
     any current drug names out on the market, and if there are names that are 
     currently listed, you will come up with another name."""
-
+    print(prompt)
 analysis = BasicGeneration(chatGPTPrompt)
 
 print(analysis)
