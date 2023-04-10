@@ -1,7 +1,7 @@
-import openai # type: ignore
+import openai
 import json
-import requests # type: ignore
-import streamlit as st # type: ignore
+import requests 
+import streamlit as st 
 
 openai.api_key = "pass"
 
