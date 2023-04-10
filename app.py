@@ -42,4 +42,4 @@ if clicked:
     currently listed, you will come up with another name."""
     analysis = BasicGeneration(chatGPTPrompt)
 
-print('analysis')
+print(analysis)
