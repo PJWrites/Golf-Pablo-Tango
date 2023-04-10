@@ -2,6 +2,7 @@ import openai # type: ignore
 import json
 import requests # type: ignore
 import streamlit as st # type: ignore
+
 def BasicGeneration(userPrompt):
     completion = openai.ChatCompletion.create(
         model="gpt-3.5-turbo",
