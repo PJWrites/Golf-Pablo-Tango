@@ -16,7 +16,7 @@ def BasicGeneration(userPrompt):
 st.title('What is the Prescription Drug For?')
 prompt = st.text_input('Type of Drug')
 clicked = st.button("OK")
-
+print(prompt)
 if clicked:
     chatGPTPrompt = f"""
     You are a person who comes up with brand names for pharmaceutical drugs. 
