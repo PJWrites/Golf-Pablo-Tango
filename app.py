@@ -13,61 +13,33 @@ def BasicGeneration(userPrompt):
     )
     return completion.choices[0].message.content
 
-st.title('Bitcoin Analyzer with ChatGPT')
-st.subheader('Press the button to be blown away with analysis')
+st.title('What is the Prescription Drug For?')
+prompt = st.text_input('Type of Drug')
+clicked = st.button("OK")
 
-def GetBitcoinPrices():
+if clicked:
+    chatGPTPrompt = f"""
+    You are a person who comes up with brand names for pharmaceutical drugs. 
+    The names you come up are easy to remember, and focus on the feelings that 
+    the words can bring out at a subconscious level. For example, the drug “Ambien” 
+    is a sleep aid, and the name implies that you will sleep well, and your “am” 
+    (as in the morning after) will be “bien” (as in good, in Spanish). So “Ambien” 
+    is a sleep aid with a name that subconsciously implies that you will have a good 
+    morning. Another example is the drug “Viagra”, which helps men with erectile 
+    dysfunction. “Via” sounds a lot like vitality, and “gra” sounds like growth, 
+    indicating a sense of vitality and growth. So “Viagra” is a erectile dysfunction 
+    drug with a name that subconsciously implies that their genitals will grow and be 
+    erect, thus giving them a sense of vitality. Another one will be Avodart, which 
+    is a drug that reduces the size of an enlarged prostate. “Avo” sounds like 
+    “avocado”, which resembles the male sexual organ, and “dart” is literally a dart, 
+    like a needle that can pop a balloon, thus deflating it, and making it smaller. 
+    So “Avodart” is a drug that treats an enlarge prostate that subconsciously imply 
+    that their prostate will be reduced dramatically. 
+    The drug that the user is developing is {prompt}. Generate for them a list of 5 
+    words. The words will have two or three syllables only, and you will provide 
+    explanations for each syllable of the word. You will check your drug name with 
+    any current drug names out on the market, and if there are names that are 
+    currently listed, you will come up with another name."""
+    analysis = BasicGeneration(chatGPTPrompt)
 
-    # Define the API endpoint and query parameters
-    url = "https://coinranking1.p.rapidapi.com/coin/Qwsogvtv82FCd/history"
-
-    querystring = {"referenceCurrencyUuid":"yhjMzLPhuIDl","timePeriod":"7d"}
-    
-    # Define the request headers with API key and host
-    headers = {
-        "X-RapidAPI-Key": "9c66426824mshd0048ae0fe48c15p185f6ejsnd7f6c6a46d5d",
-        "X-RapidAPI-Host": "coinranking1.p.rapidapi.com"
-    }
-    
-    # Send a GET request to the API endpoint with query parameters and headers
-    response = requests.request("GET", url, headers=headers, params=querystring)
-    
-    #Parse the response datat as a JSON object
-    JSONResult = json.loads(response.text)
-
-    #Extract the "history" field from the JSON response
-    history = JSONResult["data"]["history"]
-
-    #Extract the "price" field from each element in the "history" array and add to a list
-    prices = []
-    for change in history:
-        prices.append(change["price"])
-    
-    #join the list of prices into a comma-separated string
-    pricesList = ','.join(prices)
-
-    #return the comma-separated string of prices
-    return pricesList
-
-
-if st.button('Analyze'):
-    with st.spinner('Getting Bitcoin Prices...'):
-        bitcoinPrices = GetBitcoinPrices()
-        st.success('Done!')
-    with st.spinner('Analyzing Bitcoin Prices...'):
-        chatGPTPrompt = f"""You are an expert crypto trader with more than 10 years of experience, 
-            I will provide you with a list of bitcoin prices for the last 7 days
-            can you provide me with a technical analysis
-            of Bitcoin based on these prices. here is what I want:
-            Price Overview, 
-            Moving Averages, 
-            Relative Strength Index (RSI),
-            Moving Average Convergence Divergence (MACD),
-            Advice and Suggestion,
-            Do I buy or sell?
-            Please be as detailed as much as you can, and explain in a way any beginner can understand. 
-            Here is the price list: {bitcoinPrices}"""
-
-        analysis = BasicGeneration(chatGPTPrompt)
-        st.text_area("Analysis", analysis, height=500)
-        st.success('Done!')
+print('analysis')
