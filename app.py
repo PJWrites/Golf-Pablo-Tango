@@ -7,6 +7,7 @@ from io import BytesIO
 
 openai.api_key = st.secrets["openaiApiKey"]
 
+
 def BasicGeneration(userPrompt):
     completion = openai.ChatCompletion.create(
         model="gpt-3.5-turbo",
@@ -20,7 +21,7 @@ def BasicGeneration(userPrompt):
 st.title('What is the Prescription Drug For?')
 prompt = st.text_input('Type of Drug')
 
-if st.button('OK'):
+if st.button('OK', key = 'type_of_drug'):
     chatGPTPrompt = f"""You are a person who comes up with brand names for pharmaceutical drugs. 
     The names you come up are easy to remember, and focus on the feelings that 
     the words can bring out at a subconscious level. For example, the drug “Ambien” 
@@ -47,7 +48,7 @@ if st.button('OK'):
     st.write(analysis)
 
     picturePrompt = st.text_input('Which Drug Would You Like To Advertise?')
-    if st.button('OK'):
+    if st.button2('OK', key = 'name_of_drug'):
         dallEPrompt = f"""you are a dall-e pharmaceutical advertisement prompt 
         generator. You will describe an ultra realistic picture of a person typical 
         person that the drug is meant for. They will always appear to be in the middle 
