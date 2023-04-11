@@ -15,7 +15,7 @@ def BasicGeneration(userPrompt):
     )
     return completion.choices[0].message.content
 
-
+analysys = ""
 
 st.title('What is the Prescription Drug For?')
 prompt = st.text_input('Type of Drug')
