@@ -35,7 +35,7 @@ if st.button('OK', key = 'type_of_drug'):
     is a drug that reduces the size of an enlarged prostate. “Avo” sounds like 
     “avocado”, which resembles the male sexual organ, and “dart” is literally a dart, 
     like a needle that can pop a balloon, thus deflating it, and making it smaller. 
-    So “Avodart” is a drug that treats an enlarge prostate that subconsciously imply 
+    So “Avodart” is a drug that treats an enlarged prostate that subconsciously imply 
     that their prostate will be reduced dramatically. 
     The drug that the user is developing is {prompt}. Generate for them a list of 5 
     words. The words will have two or three syllables only, and you will provide 
