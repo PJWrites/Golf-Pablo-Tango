@@ -71,6 +71,7 @@ if pixReady == True:
 
         image_url = response['data'][0]['url']
         st.image(image_url)
+        pixReady = True
         
 
 
