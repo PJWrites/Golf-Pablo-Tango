@@ -48,7 +48,7 @@ if st.button('OK', key = 'type_of_drug'):
     st.write(analysis)
 
     picturePrompt = st.text_input('Which Drug Would You Like To Advertise?')
-    if st.button2('OK', key = 'name_of_drug'):
+    if st.button('OK', key = 'name_of_drug'):
         dallEPrompt = f"""you are a dall-e pharmaceutical advertisement prompt 
         generator. You will describe an ultra realistic picture of a person typical 
         person that the drug is meant for. They will always appear to be in the middle 
