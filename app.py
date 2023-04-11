@@ -47,28 +47,28 @@ if st.button('OK', key = 'type_of_drug'):
     analysis = BasicGeneration(chatGPTPrompt)
     st.write(analysis)
 
-picturePrompt = st.text_input('Which Drug Would You Like To Advertise?')
-if st.button('OK', key = 'name_of_drug'):
-    # dallEPrompt = f"""you are a dall-e pharmaceutical advertisement prompt 
-    # generator. You will describe an ultra realistic picture of a person typical 
-    # person that the drug is meant for. They will always appear to be in the middle 
-    # of an activity (like painting, rock climbing, running through a flower field, 
-    # swimming in a pool, but stopping for a moment to stare at the camera and smiling 
-    # for a genuinely happy picture. You will use {picturePrompt} from the text above 
-    # as the title of the picture and use small font to describe what this 
-    # medication will do, and also use generic words to use legal language about 
-    # medications in general, like, "side effects include headache, nausea, vomiting, 
-    # hallucinations" and always include, "talk to your doctor if this medication is 
-    # right for you." """
-    prompt = f"A happy person holding a pill bottle labeled{picturePrompt}"
-    response = openai.Image.create(
-        prompt=prompt,
-        n=1,
-        size="256x256"
-    )
+    picturePrompt = st.text_input('Which Drug Would You Like To Advertise?')
+    if st.button('OK', key = 'name_of_drug'):
+        # dallEPrompt = f"""you are a dall-e pharmaceutical advertisement prompt 
+        # generator. You will describe an ultra realistic picture of a person typical 
+        # person that the drug is meant for. They will always appear to be in the middle 
+        # of an activity (like painting, rock climbing, running through a flower field, 
+        # swimming in a pool, but stopping for a moment to stare at the camera and smiling 
+        # for a genuinely happy picture. You will use {picturePrompt} from the text above 
+        # as the title of the picture and use small font to describe what this 
+        # medication will do, and also use generic words to use legal language about 
+        # medications in general, like, "side effects include headache, nausea, vomiting, 
+        # hallucinations" and always include, "talk to your doctor if this medication is 
+        # right for you." """
+        prompt = f"A happy person holding a pill bottle labeled{picturePrompt}"
+        response = openai.Image.create(
+            prompt=prompt,
+            n=1,
+            size="256x256"
+        )
 
-    image_url = response['data'][0]['url']
-    st.image(image_url)
+        image_url = response['data'][0]['url']
+        st.image(image_url)
         
 
 
