@@ -2,6 +2,8 @@ import openai
 import json
 import requests 
 import streamlit as st 
+from PIL import Image
+from io import BytesIO
 
 openai.api_key = st.secrets["openaiApiKey"]
 
@@ -12,6 +14,8 @@ def BasicGeneration(userPrompt):
             {"role": "user", "content": userPrompt}]
     )
     return completion.choices[0].message.content
+
+
 
 st.title('What is the Prescription Drug For?')
 prompt = st.text_input('Type of Drug')
@@ -44,4 +48,29 @@ if st.button('OK'):
 
     picturePrompt = st.text_input('Which Drug Would You Like To Advertise?')
     if st.button('OK'):
-        st.write(picturePrompt)
+        dallEPrompt = f"""you are a dall-e pharmaceutical advertisement prompt 
+        generator. You will describe an ultra realistic picture of a person typical 
+        person that the drug is meant for. They will always appear to be in the middle 
+        of an activity (like painting, rock climbing, running through a flower field, 
+        swimming in a pool, but stopping for a moment to stare at the camera and smiling 
+        for a genuinely happy picture. You will use {picturePrompt} from the text above 
+        as the title of the picture and use small font to describe what this 
+        medication will do, and also use generic words to use legal language about 
+        medications in general, like, "side effects include headache, nausea, vomiting, 
+        hallucinations" and always include, "talk to your doctor if this medication is 
+        right for you." """
+        response = openai.Image.create(
+            prompt=prompt,
+            n=1,
+            size="600x400"
+        )
+
+        image_url = response['data'][0]['url']
+        
+# Replace with the URL returned by the DALL-E API
+# image_url = "https://api.openai.com/v1/images/generations/GENERATION_ID"
+
+# response = requests.get(image_url)
+# image = Image.open(BytesIO(response.content))
+
+# st.image(image, caption="DALL-E generated image")
