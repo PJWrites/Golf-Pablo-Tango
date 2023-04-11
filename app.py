@@ -40,4 +40,4 @@ if st.button('OK'):
     currently listed, you will come up with another name."""
 
     analysis = BasicGeneration(chatGPTPrompt)
-    st.write(analysis)
+    st.text_area("Analysis",analysis,height=500)
