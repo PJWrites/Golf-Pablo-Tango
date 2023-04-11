@@ -66,12 +66,11 @@ if st.button('OK', key = 'type_of_drug'):
             size="600x400"
         )
 
-        image_url = response['data'][0]['url']
+        image_url = "https://api.openai.com/v1/images/generations/GENERATION_ID"
+        response = requests.get(image_url)
+        image = Image.open(BytesIO(response.content))
+
+        st.image(image, caption="DALL-E generated image")
         
-# Replace with the URL returned by the DALL-E API
-# image_url = "https://api.openai.com/v1/images/generations/GENERATION_ID"
 
-# response = requests.get(image_url)
-# image = Image.open(BytesIO(response.content))
 
-# st.image(image, caption="DALL-E generated image")
