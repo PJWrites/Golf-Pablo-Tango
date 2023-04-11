@@ -64,7 +64,7 @@ if st.button('OK', key = 'name_of_drug'):
     response = openai.Image.create(
         prompt=prompt,
         n=1,
-        size="600x400"
+        size="256x256"
     )
 
     image_url = response['data'][0]['url']
