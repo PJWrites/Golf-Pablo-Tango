@@ -40,4 +40,8 @@ if st.button('OK'):
     currently listed, you will come up with another name."""
 
     analysis = BasicGeneration(chatGPTPrompt)
-    st.text_area("Analysis",analysis,height=300)
+    st.write(analysis)
+
+    picturePrompt = st.text_input('Which Drug Would You Like To Advertise?')
+    if st.button('OK'):
+        st.write(picturePrompt)
