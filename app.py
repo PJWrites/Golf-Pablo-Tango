@@ -29,7 +29,7 @@ if st.button('OK', key = 'type_of_drug'):
     is a sleep aid with a name that subconsciously implies that you will have a good 
     morning. Another example is the drug “Viagra”, which helps men with erectile 
     dysfunction. “Via” sounds a lot like vitality, and “gra” sounds like growth, 
-    indicating a sense of vitality and growth. So “Viagra” is a erectile dysfunction 
+    indicating a sense of vitality and growth. So “Viagra” is an erectile dysfunction 
     drug with a name that subconsciously implies that their genitals will grow and be 
     erect, thus giving them a sense of vitality. Another one will be Avodart, which 
     is a drug that reduces the size of an enlarged prostate. “Avo” sounds like 
