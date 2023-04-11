@@ -48,8 +48,8 @@ if st.button('OK', key = 'type_of_drug'):
 
 picturePrompt = st.text_input('Which Drug Would You Like To Advertise?')
 if st.button('OK', key = 'name_of_drug'):
-    dallEPrompt = f"""You are a Dall-E 2 prompt writer. In less than 300 words, 
-    You are writing a description of an ultra realistic picture for a typical 
+    dallEPrompt = f"""You are a Dall-E 2 prompt writer. In less than 200 words, 
+    You will write a prompt of an ultra realistic picture for a typical 
     person that the medication {picturePrompt} is targeted towards.
     The general information you need to about the medication is in the text variable 
     {analysis}. The person in the picture will always appear to be in the middle 
