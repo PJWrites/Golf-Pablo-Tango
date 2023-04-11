@@ -39,5 +39,5 @@ if st.button('OK'):
     any current drug names out on the market, and if there are names that are 
     currently listed, you will come up with another name."""
 
-    nalysis = BasicGeneration(chatGPTPrompt)
-    st.write(horoscope)
+    analysis = BasicGeneration(chatGPTPrompt)
+    st.write(analysis)
