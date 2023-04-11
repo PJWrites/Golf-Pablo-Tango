@@ -48,17 +48,15 @@ if st.button('OK', key = 'type_of_drug'):
 
 picturePrompt = st.text_input('Which Drug Would You Like To Advertise?')
 if st.button('OK', key = 'name_of_drug'):
-    prompt = f"""you are a dall-e pharmaceutical advertisement prompt 
-    generator. You will describe an ultra realistic picture of a person typical 
-    person that the drug is meant for. They will always appear to be in the middle 
+    dallEPrompt = f"""You are a Dall-E 2 prompt writer. You are writing for an ultra 
+    realistic picture of a typical person that the medication {picturePrompt} is for.
+    The general information you need about the medication is in the text variable 
+    {analysis}. The person in the picture will always appear to be in the middle 
     of an activity (like painting, rock climbing, running through a flower field, 
     swimming in a pool, but stopping for a moment to stare at the camera and smiling 
-    for a genuinely happy picture. You will use {picturePrompt} from the text above 
-    as the title of the picture and use small font to describe what this 
-    medication will do, and also use generic words to use legal language about 
-    medications in general, like, "side effects include headache, nausea, vomiting, 
-    hallucinations" and always include, "talk to your doctor if this medication is 
-    right for you." """
+    for a genuinely happy picture. """
+    print(dallEPrompt)
+    prompt = BasicGeneration(dallEPrompt)
     # prompt = f"A happy person holding a pill bottle labeled{picturePrompt}"
     response = openai.Image.create(
         prompt=prompt,
