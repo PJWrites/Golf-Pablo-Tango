@@ -46,28 +46,3 @@ if st.button('OK', key = 'type_of_drug'):
     analysis = BasicGeneration(chatGPTPrompt)
     st.write(analysis)
 
-picturePrompt = st.text_input('Which Drug Would You Like To Advertise?')
-if st.button('OK', key = 'name_of_drug'):
-
-    prompt = f"""A happy person holding a pill bottle labeled {picturePrompt}"""
-    response = openai.Image.create(
-        prompt=prompt,
-        n=1,
-        size="512x512"
-    )
-    
-    image_url = response['data'][0]['url']
-    st.image(image_url)
-    
-    pixPrompt = f"""Act as a marketing expert and provide a provocative marketing 
-    material for {picturePrompt} in 100 words or less. Additional information about
-    the medication is in the text variable {analysis}. The words will capture the 
-    attention of your target audience and compel them to take action. Include a 
-    compelling headline, use persuasive language, and create a call-to-action that 
-    drives conversions. Finally, include common examples of side effects (such as rash, 
-    stomach ache, fever, dizziness, hallucinations), and always include the legal 
-    statement, "ask your doctor if {picturePrompt} is right for you" """
-
-    pitch = BasicGeneration(pixPrompt)
-    st.write(pitch)
-
