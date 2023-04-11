@@ -48,25 +48,29 @@ if st.button('OK', key = 'type_of_drug'):
 
 picturePrompt = st.text_input('Which Drug Would You Like To Advertise?')
 if st.button('OK', key = 'name_of_drug'):
-    dallEPrompt = f"""You are a Dall-E 2 prompt writer. In less than 200 words, 
-    You will write a prompt of an ultra realistic picture for a typical 
-    person that the medication {picturePrompt} is targeted towards.
-    The general information you need to about the medication is in the text variable 
-    {analysis}. The person in the picture will always appear to be in the middle 
-    of an activity (like painting, rock climbing, running through a flower field, 
-    swimming in a pool, but stopping for a moment to stare at the camera and smiling 
-    for a genuinely happy picture. """
-    print(dallEPrompt)
-    prompt = BasicGeneration(dallEPrompt)
-    # prompt = f"A happy person holding a pill bottle labeled{picturePrompt}"
+
+    prompt = f"""A happy person holding a pill bottle labeled {picturePrompt}, and 
+    {picturePrompt} written across the top"""
     response = openai.Image.create(
         prompt=prompt,
         n=1,
         size="512x512"
     )
-
+    
     image_url = response['data'][0]['url']
     st.image(image_url)
-        
+    
+    pixPrompt = f"""Act as a marketing expert and provide a provocative marketing 
+    material for {picturePrompt} in 200 words or less. Additional information about
+    the medication is in the text variable {analysis}. The words will capture the 
+    attention of your target audience and compel them to take action. Include a 
+    compelling headline, use persuasive language, and create a call-to-action that 
+    drives conversions. Additionally, provide real-life examples of successful 
+    marketing materials that effectively achieved their goals and explain what made 
+    them stand out. Finally, include common examples of side effects (such as rash, 
+    stomach ache, fever, dizziness, hallucinations), and always include the legal 
+    statement, "ask your doctor if {picturePrompt} is right for you" """
 
+    pitch = BasicGeneration(pixPrompt)
+    st.write(pitch)
 
